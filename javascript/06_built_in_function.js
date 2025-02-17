@@ -1,3 +1,4 @@
+/*
 //eval - Evaluates a string and returns a value.
 
 var x = 2
@@ -46,3 +47,15 @@ const sum = numbers.reduce((total, currentValue) => {
 }, 0)
 
 console.log(sum); // 15
+
+*/
+//currying
+
+function sum(a) {
+    return (b) => {
+        return (c) => {
+            return a + b + c
+        }
+    }
+}
+console.log(sum(1)(2)(3)) // 6
