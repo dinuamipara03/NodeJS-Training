@@ -30,21 +30,20 @@ function greet(name, callback) {
   */
 
   //ex 3
-  function readFile(filePath, callback) {
-    const fs = require('fs');
-    fs.readFile(filePath, 'utf8', (err, data) => {
-      if (err) {
-        callback(err, null);
-      } else {
-        callback(null, data);
-      }
-    });
-  }
-  
-  readFile('ex.txt', (err, data) => {
-    if (err) {
-      console.error("Error reading file:", err);
-    } else {
-      console.log("File content:", data);
-    }
-  });
+  // Callback Function Example
+function greet(name, myFunction) {
+    console.log('Hello world');
+
+    // callback function
+    // executed only after the greet() is executed
+    myFunction(name);
+}
+
+// callback function
+function sayName(name) {
+    console.log('Hello' + ' ' + name);
+}
+
+// calling the function after 2 seconds
+setTimeout(greet, 2000, 'John', sayName);
+//In the above program, the code is executed synchronously. The sayName() function is passed as an argument to the greet() function. The setTimeout() method executes the greet() function only after 2 seconds. However, the sayName() function waits for the execution of the greet() function.
